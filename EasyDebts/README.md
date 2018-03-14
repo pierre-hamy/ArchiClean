@@ -44,3 +44,9 @@ Rather than a very detailed list of debts, the simplified balance is computed by
   Claire owes 17 € to Bob
   David has no debts.
 ```
+
+### Design constraints
+
+`payment_history` may be a module, class or namespace.
+`register_payment` and `balance_debts` are just examples of functions / methods you could use as an entry point for your software.
+You are free to stick to them or use different entry points.
