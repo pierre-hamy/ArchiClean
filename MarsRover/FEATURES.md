@@ -15,7 +15,7 @@ Rappel
 
 * Single Responsibility Principle
 * Open/Close Principle
-* Lisko Substitution Principle
+* Liskov Substitution Principle
 * Interface Segregation Principle
 * Dependency Inversion Principle 
 
