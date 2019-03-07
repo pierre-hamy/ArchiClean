@@ -3,7 +3,7 @@
 | Nom | Langage | Durée | From scratch ? | Tests existants ? | Solution ? | Apprentissages | Cas d'utilisation (ex : recrutement n1, formation TDD02, etc) | Mises à jour nécessaires ? |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Elo Chart](EloChart/README.md) |  | < 3 hours | oui | non | non | Trouver une bonne liste de tests pour implémenter la formule |  |  |
-| [Tennis Game](TennisGame/README.md) |  | < 3 hours | oui (voir repo EmilyBache pour setup ?) | non | non |  |  |  |
+| [Tennis Game](TennisGame/README.md) |  | < 3 hours | oui | non | non |  |  | voir repo EmilyBache pour setup ? |
 | [Game Of Life](GameOfLife/README.md) |  | < 3 hours | oui | non | non |  |  |  |
 | [Online Shopping](OnlineShopping/README.md) |  | < 1 day | oui | non | non |  |  |  |
 | [Archi Clean](https://github.com/octo-technology/Kata-List/tree/master/ArchiClean) | Java | 3 hours | non | oui | non | Refactoring API de GameOfLife |  | Java 8 |
