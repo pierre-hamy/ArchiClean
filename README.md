@@ -80,4 +80,4 @@ Pour enrichir la liste, les règles  sont les suivantes :
 * Mettre à jour les versions des katas existants si besoin (exemple : PR sur les repos existants)
 * Remplir la section des starters en Java, JS, Python
 * Proposer des solutions aux katas de la liste qui n'en ont pas encore
-* Autre exemples d'exercices/katas : [exercism.io](exercism.io)
+* Autre exemples d'exercices/katas : [exercism.io](https://exercism.io)
