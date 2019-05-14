@@ -22,7 +22,9 @@
 | [Transitive Dependencies](http://codekata.com/kata/kata18-transitive-dependencies/) |  |  | oui | non | non | Data structures |  |  |
 | [Bowling]() |  | 3 hours |  |  | cf CTH |  |  |  |
 | [CQRS and Event Sourcing Koans](https://github.com/DevLyon/mixter) |  |  |  |  |  |  |  |  |
-| [Roman Numerals]() |  |  |  |  |  |  |  |  |
+| [Roman Numerals](http://codingdojo.org/kata/RomanNumerals/) | Kotlin |  | oui |  | [ici](https://github.com/EGI-OCTO/roman-numerals-kata-kotlin) | Récursivité, Baby steps, [Règle de trois](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)) |  | non |
+| [Diamond](https://github.com/ToF-/DiamondKata) | Haskell |  | oui |  | [ici](https://github.com/ToF-/DiamondKata) | Property based testing, bases d'Haskell |  | non |
+| [Diamond](https://github.com/EGI-OCTO/diamond-kata-kotlin-PBT) | Kotlin |  | oui |  | [ici](https://github.com/EGI-OCTO/diamond-kata-kotlin-PBT) | Property based testing |  | non |
 | [URL Bar Runner](https://v6p9d9t4.ssl.hwcdn.net/html/1005038/index.html) |  |  |  |  |  |  |  |  |
 
 # Starters-list
