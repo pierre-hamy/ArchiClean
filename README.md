@@ -32,6 +32,7 @@
 | Java | TODO |
 | Javascript | TODO |
 | Python | TODO |
+| Kotlin | [ici](https://github.com/EGI-OCTO/kotlin-kata-starter) |
 
 # Idées de contraintes
 
