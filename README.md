@@ -15,6 +15,7 @@
 | [Trip service](https://github.com/octo-technology/trip-service-kata) |  | 3 hours |  |  | Live code Sandro Mancuso | Dépendances | TDD02 |  |
 | [Trivia](https://github.com/octo-technology/trivia) |  | > 1 jour |  |  |  |  | TDD02 |  |
 | [Mars Rover](https://github.com/octo-technology/mars-rover-starter) |  | 1 jour | oui | non | oui | Problématique d’extensibilité du code | TDD03 |  |
+| [Mars Rover](https://github.com/EGI-OCTO/mars-rover-kata-kotlin) | Kotlin | | oui | non | oui | | |  |
 | [Risk Game Of Thrones](https://gitlab.com/blndr/risk) |  | > 1 jour | oui | non | non | POO, Data structures |  |  |
 | [Salle de sport](https://github.com/octo-technology/salle-de-sport-java) |  | 3 hours |  |  |  |  |  |  |
 | [Kuzco](https://github.com/jcraftsman/hotel-cuzco) |  | 1 jour | oui | non | oui |  |  |  |
