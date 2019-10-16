@@ -9,7 +9,7 @@
 | [Archi Clean](https://github.com/octo-technology/Kata-List/tree/master/ArchiClean) | Java | 3 hours | non | oui | non | Refactoring API de GameOfLife |  | Java 8 |
 | [Archi Clean](https://github.com/octo-technology/Kata-List/tree/master/ArchiClean) | Php | 3 hours | non | oui | non | Refactoring API de GameOfLife |  | ? |
 | [Archi Clean](https://github.com/octo-technology/Kata-List/tree/master/ArchiClean) | Python | 3 hours | non | oui | non | Refactoring API de GameOfLife |  | - |
-| [Puissance 4](https://www.codewars.com/kata/connect-4) |  | > 1 jour | oui | non | [java](https://github.com/victorenaud/power-4-kata) | TDD from scratch | TDD01 |  |
+| [Puissance 4](https://www.codewars.com/kata/connect-4) |  | > 1 jour | oui | non | [java](https://github.com/victorenaud/power-4-kata) [javascript](https://github.com/rflipo-octo/puissance-4) | TDD from scratch | TDD01 |  |
 | [Kata Bank](https://github.com/sandromancuso/Bank-kata) |  |  |  |  | Live code en outside-in de Sandro Mancuso |  | TDD01 |  |
 | [Gilded rose](https://github.com/octo-technology/GildedRose-Refactoring-Kata) |  | 3 hours | non | oui | Live code FLA | Pose de tests de caractérisation (boîte noire), refacto | TDD02 |  |
 | [Trip service](https://github.com/octo-technology/trip-service-kata) |  | 3 hours |  |  | Live code Sandro Mancuso | Casser des dépendances statiques, SRP, refacto | TDD02 |  |
