@@ -19,6 +19,7 @@
 | [Risk Game Of Thrones](https://gitlab.com/blndr/risk) |  | > 1 jour | oui | non | non | POO, Data structures |  |  |
 | [Salle de sport](https://github.com/octo-technology/salle-de-sport-java) | java | 3 hours |  |  | [java](https://github.com/octo-technology/salle-de-sport-java) | Comprendre l'intérêt d'avoir plus d'un bounded context | DDD01 |  |
 | [Salle de sport](https://github.com/octo-technology/salle-de-sport-kotlin) | Kotlin | 3 hours |  |  | [Kotlin](https://github.com/octo-technology/salle-de-sport-kotlin) | Comprendre l'intérêt d'avoir plus d'un bounded context | DDD01 |  |
+| [Maître D'](https://blog.ploeh.dk/2020/01/27/the-maitre-d-kata/) | Kotlin | | | | [Kotlin](https://github.com/octo-technology/maitre-d) | Se familiariser avec l'Event sourcing et les domain events | | |
 | [Kuzco](https://github.com/jcraftsman/hotel-cuzco) |  | 1 jour | oui | non | oui |  |  |  |
 | [kata-theater](https://github.com/emilybache/Theater-Kata) |  |  | oui | oui | non |  |  |  |
 | [Transitive Dependencies](http://codekata.com/kata/kata18-transitive-dependencies/) |  |  | oui | non | non | Data structures |  |  |
