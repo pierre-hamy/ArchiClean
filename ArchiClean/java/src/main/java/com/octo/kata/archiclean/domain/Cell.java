@@ -48,16 +48,19 @@ public class Cell {
         return Pair.of(maxX + 1, maxY + 1);
     }
 
-    public static State[][] cellArrayToGrid(List<Cell> cells, Integer width, Integer height) {
+    public static Grid cellArrayToGrid(List<Cell> cells, Integer width, Integer height) {
         State[][] grid = new State[height][width];
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 grid[y][x] = State.DEAD;
             }
         }
-        cells.forEach(cell -> {
-            grid[cell.y][cell.x] = (cell.alive ? State.ALIVE : State.DEAD);
-        });
-        return grid;
+        cells.forEach(cell -> grid[cell.y][cell.x] = (cell.alive ? State.ALIVE : State.DEAD));
+        Grid returnedGrid = new Grid();
+        returnedGrid.setHeight(height);
+        returnedGrid.setWidth(width);
+        returnedGrid.setStates(grid);
+
+        return returnedGrid;
     }
 }

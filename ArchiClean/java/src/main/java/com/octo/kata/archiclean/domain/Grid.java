@@ -16,6 +16,22 @@ public class Grid {
 
     private State[][] states;
 
+    public Grid() {
+
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setStates(State[][] states) {
+        this.states = states;
+    }
+
     public State[][] getStates() {
         return states;
     }
@@ -59,22 +75,23 @@ public class Grid {
         return cells;
     }
 
-    public static State[][] computeEvolutions(State[][] grid) {
-        Pair<Integer, Integer> dimensions = getGridDimensions(grid);
+    public void computeEvolutions() {
+        final State[][] states = this.getStates();
+        Pair<Integer, Integer> dimensions = getGridDimensions(states);
         Integer width = dimensions.getLeft();
         Integer height = dimensions.getRight();
 
-        State[][] newGrid = initializeGrid(width, height);
+        State[][] newStates = initializeGrid(width, height);
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 State nextState = State.DEAD;
-                if (willStayAlive(grid, x, y)) {
+                if (willStayAlive(states, x, y)) {
                     nextState = State.ALIVE;
                 }
-                newGrid[y][x] = nextState;
+                newStates[y][x] = nextState;
             }
         }
-        return newGrid;
+        this.states = newStates;
     }
 
     private static Pair<Integer, Integer> getGridDimensions(State[][] grid) {
