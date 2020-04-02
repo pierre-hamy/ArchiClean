@@ -13,6 +13,9 @@ public class Grid {
     private int height;
     private int width;
     private State[][] states;
+    private List<Cell> cells;
+
+
 
     public Grid() {
     }
@@ -39,6 +42,9 @@ public class Grid {
         this.width = lines[0].length();
         this.states = this.initializeGrid(width, height);
 
+        this.cells = this.initializeGridCell(width,height);
+
+
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 this.states[y][x] = (lines[y].charAt(x) == State.ALIVE.value ? State.ALIVE : State.DEAD);
@@ -55,6 +61,19 @@ public class Grid {
             }
         }
         return grid;
+    }
+
+    private List<Cell> initializeGridCell(int width, int height) {
+        State[][] grid = new State[height][width];
+       List<Cell> cells = new ArrayList<>();
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                grid[y][x] = State.DEAD;
+                cells.add(new Cell(x,y,State.DEAD));
+            }
+        }
+        return cells;
     }
 
     public List<Cell> gridToCellArray() {

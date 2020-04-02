@@ -5,6 +5,16 @@ public class Cell {
     Integer y;
     State state;
 
+    public Cell(int x, int y, State state) {
+        this.x = x;
+        this.y = y;
+        this.state=state;
+    }
+
+    public Cell() {
+
+    }
+
     public Integer getX() {
         return x;
     }
