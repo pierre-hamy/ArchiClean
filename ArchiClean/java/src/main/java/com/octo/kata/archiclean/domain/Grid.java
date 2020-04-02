@@ -60,14 +60,15 @@ public class Grid {
         return grid;
     }
 
-    public static List<Cell> gridToCellArray(State[][] grid) {
+    public List<Cell> gridToCellArray() {
         List<Cell> cells = new ArrayList<>();
-        for (int y = 0; y < grid.length; y++) {
-            for (int x = 0; x < grid[y].length; x++) {
+        final State[][] states = this.getStates();
+        for (int y = 0; y < states.length; y++) {
+            for (int x = 0; x < states[y].length; x++) {
                 Cell cell = new Cell();
                 cell.x = x;
                 cell.y = y;
-                cell.alive = grid[y][x] == State.ALIVE;
+                cell.alive = states[y][x] == State.ALIVE;
                 cells.add(cell);
             }
 

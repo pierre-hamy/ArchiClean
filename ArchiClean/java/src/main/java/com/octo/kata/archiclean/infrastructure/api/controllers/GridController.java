@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-import static com.octo.kata.archiclean.domain.Grid.gridToCellArray;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
@@ -32,8 +31,8 @@ public class GridController {
     @GetMapping(value = "/grid", produces = APPLICATION_JSON_VALUE)
     public List<CellDTO> getFromTemplate(@RequestParam("template") String template) throws IOException {
 
-        Grid grid = this.findGridTemplateUseCase.execute(template);
-        return CellMapper.fromDomainListToApiList(gridToCellArray(grid.getStates()));
+        Grid returnedGrid = this.findGridTemplateUseCase.execute(template);
+        return CellMapper.fromDomainListToApiList(returnedGrid.gridToCellArray());
     }
 
     @PostMapping(value = "/grid", produces = APPLICATION_JSON_VALUE)
@@ -42,7 +41,7 @@ public class GridController {
 
         Grid returnedGrid = this.updateGridUseCase.execute(cells);
 
-        return CellMapper.fromDomainListToApiList(gridToCellArray(returnedGrid.getStates()));
+        return CellMapper.fromDomainListToApiList(returnedGrid.gridToCellArray());
     }
 
 }
