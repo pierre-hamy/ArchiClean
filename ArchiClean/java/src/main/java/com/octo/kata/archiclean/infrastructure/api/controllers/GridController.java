@@ -14,7 +14,8 @@ import java.util.List;
 
 import static com.octo.kata.archiclean.domain.Cell.cellArrayToGrid;
 import static com.octo.kata.archiclean.domain.Cell.getCellArrayDimensions;
-import static com.octo.kata.archiclean.domain.Grid.*;
+import static com.octo.kata.archiclean.domain.Grid.computeEvolutions;
+import static com.octo.kata.archiclean.domain.Grid.gridToCellArray;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
@@ -22,7 +23,7 @@ public class GridController {
 
 
     private FindGridTemplateUseCase findGridTemplateUseCase;
-    private TemplateFileRepository fileSystemRepository ;
+    private TemplateFileRepository fileSystemRepository;
 
     public GridController() {
         this.fileSystemRepository = new TemplateFileRepository();
@@ -32,8 +33,7 @@ public class GridController {
     @GetMapping(value = "/grid", produces = APPLICATION_JSON_VALUE)
     public List<CellDTO> getFromTemplate(@RequestParam("template") String template) throws IOException {
 
-        String fileContent = this.findGridTemplateUseCase.execute(template);
-        State[][] grid = prepareGame(fileContent);
+        State[][] grid = this.findGridTemplateUseCase.execute(template);
         return CellMapper.fromDomainListToApiList(gridToCellArray(grid));
     }
 
