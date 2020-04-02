@@ -2,6 +2,7 @@ package com.octo.kata.archiclean.infrastructure.api.controllers;
 
 import com.octo.kata.archiclean.adapters.CellMapper;
 import com.octo.kata.archiclean.domain.Cell;
+import com.octo.kata.archiclean.domain.Grid;
 import com.octo.kata.archiclean.domain.State;
 import com.octo.kata.archiclean.infrastructure.api.dto.CellDTO;
 import com.octo.kata.archiclean.infrastructure.filesystem.repositories.TemplateFileRepository;
@@ -33,8 +34,8 @@ public class GridController {
     @GetMapping(value = "/grid", produces = APPLICATION_JSON_VALUE)
     public List<CellDTO> getFromTemplate(@RequestParam("template") String template) throws IOException {
 
-        State[][] grid = this.findGridTemplateUseCase.execute(template);
-        return CellMapper.fromDomainListToApiList(gridToCellArray(grid));
+        Grid grid = this.findGridTemplateUseCase.execute(template);
+        return CellMapper.fromDomainListToApiList(gridToCellArray(grid.getStates()));
     }
 
     @PostMapping(value = "/grid", produces = APPLICATION_JSON_VALUE)

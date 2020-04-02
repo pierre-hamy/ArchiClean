@@ -9,21 +9,32 @@ import static java.util.stream.Collectors.toList;
 
 public class Grid {
 
-    public static State[][] prepareGame(String template) {
-        String[] lines = template.split("\n");
-        int height = lines.length;
-        int width = lines[0].length();
 
-        State[][] grid = initializeGrid(width, height);
+    private String template;
+    private int height;
+    private int width;
+
+    private State[][] states;
+
+    public State[][] getStates() {
+        return states;
+    }
+
+    public Grid(String template){
+        String[] lines = template.split("\n");
+        this.height = lines.length;
+        this.width= lines[0].length();
+        this.states = initializeGrid(width,height);
+
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                grid[y][x] = (lines[y].charAt(x) == State.ALIVE.value ? State.ALIVE : State.DEAD);
+                this.states[y][x] = (lines[y].charAt(x) == State.ALIVE.value ? State.ALIVE : State.DEAD);
             }
         }
-        return grid;
     }
-    //TODO: Change public to private
-    public static State[][] initializeGrid(int width, int height) {
+
+
+    private static State[][] initializeGrid(int width, int height) {
         State[][] grid = new State[height][width];
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {

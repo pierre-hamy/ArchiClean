@@ -1,13 +1,11 @@
 package com.octo.kata.archiclean.usecases;
 
 
-import com.octo.kata.archiclean.domain.State;
+import com.octo.kata.archiclean.domain.Grid;
 import com.octo.kata.archiclean.domain.repositories.TemplateRepository;
 import com.octo.kata.archiclean.infrastructure.filesystem.repositories.TemplateFileRepository;
 
 import java.io.IOException;
-
-import static com.octo.kata.archiclean.domain.Grid.prepareGame;
 
 public class FindGridTemplateUseCase {
 
@@ -19,11 +17,10 @@ public class FindGridTemplateUseCase {
     }
 
 
-    public State[][] execute(String path) throws IOException {
+    public Grid execute(String path) throws IOException {
 
         final String templateContent = templateRepository.getTemplateContent(path);
-
-        return prepareGame(templateContent);
+        return new Grid(templateContent);
     }
 
 }
