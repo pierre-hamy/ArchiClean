@@ -1,11 +1,14 @@
 package com.octo.kata.archiclean;
 
 import com.octo.kata.archiclean.infrastructure.api.controllers.GridController;
+import com.octo.kata.archiclean.usecases.FindGridTemplateUseCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -18,10 +21,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(GridController.class)
+//@SpringBootTest(classes = { FindGridTemplateUseCase.class })
 public class ArchiCleanApplicationTests {
 
     @Autowired
     private MockMvc mvc;
+
+
+   // private FindGridTemplateUseCase findGridTemplateUseCase;
+
+
 
     @Test
     public void test_get_glider() throws Exception {

@@ -9,7 +9,7 @@ import static java.util.stream.Collectors.toList;
 
 public class Grid {
 
-    public static State[][] initGridFromTemplate(String template) {
+    public static State[][] prepareGame(String template) {
         String[] lines = template.split("\n");
         int height = lines.length;
         int width = lines[0].length();
@@ -101,7 +101,7 @@ public class Grid {
     }
 
     private static Boolean willStayAlive(State[][] grid, Integer x, Integer y) {
-        Integer living = countLivingNeighbours(grid, x, y);
+        int living = countLivingNeighbours(grid, x, y);
         if (living == 3) {
             return true;
         }

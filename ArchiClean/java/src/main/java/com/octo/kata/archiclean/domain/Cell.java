@@ -5,10 +5,33 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.List;
 
 public class Cell {
-    public Integer x;
-    public Integer y;
-    public Boolean alive;
+    Integer x;
+    Integer y;
+    Boolean alive;
 
+    public Integer getX() {
+        return x;
+    }
+
+    public void setX(Integer x) {
+        this.x = x;
+    }
+
+    public Integer getY() {
+        return y;
+    }
+
+    public void setY(Integer y) {
+        this.y = y;
+    }
+
+    public Boolean getAlive() {
+        return alive;
+    }
+
+    public void setAlive(Boolean alive) {
+        this.alive = alive;
+    }
 
     public static Pair<Integer, Integer> getCellArrayDimensions(List<Cell> cells) {
         Integer maxX = cells.get(0).x;
