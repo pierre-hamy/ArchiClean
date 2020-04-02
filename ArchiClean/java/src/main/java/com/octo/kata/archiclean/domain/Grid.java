@@ -10,14 +10,11 @@ import static java.util.stream.Collectors.toList;
 public class Grid {
 
 
-    private String template;
     private int height;
     private int width;
-
     private State[][] states;
 
     public Grid() {
-
     }
 
     public void setHeight(int height) {
@@ -32,15 +29,15 @@ public class Grid {
         this.states = states;
     }
 
-    public State[][] getStates() {
+    private State[][] getStates() {
         return states;
     }
 
-    public Grid(String template){
+    public Grid(String template) {
         String[] lines = template.split("\n");
         this.height = lines.length;
-        this.width= lines[0].length();
-        this.states = initializeGrid(width,height);
+        this.width = lines[0].length();
+        this.states = this.initializeGrid(width, height);
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -50,7 +47,7 @@ public class Grid {
     }
 
 
-    private static State[][] initializeGrid(int width, int height) {
+    private State[][] initializeGrid(int width, int height) {
         State[][] grid = new State[height][width];
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -68,7 +65,7 @@ public class Grid {
                 Cell cell = new Cell();
                 cell.x = x;
                 cell.y = y;
-                cell.alive = states[y][x] == State.ALIVE;
+                cell.state = states[y][x];
                 cells.add(cell);
             }
 
@@ -77,8 +74,7 @@ public class Grid {
     }
 
     public void computeEvolutions() {
-        final State[][] states = this.getStates();
-        Pair<Integer, Integer> dimensions = getGridDimensions(states);
+        Pair<Integer, Integer> dimensions = getGridDimensions();
         Integer width = dimensions.getLeft();
         Integer height = dimensions.getRight();
 
@@ -86,7 +82,7 @@ public class Grid {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 State nextState = State.DEAD;
-                if (willStayAlive(states, x, y)) {
+                if (willStayAlive(x, y)) {
                     nextState = State.ALIVE;
                 }
                 newStates[y][x] = nextState;
@@ -95,13 +91,15 @@ public class Grid {
         this.states = newStates;
     }
 
-    private static Pair<Integer, Integer> getGridDimensions(State[][] grid) {
-        return Pair.of(grid[0].length, grid.length);
+    private Pair<Integer, Integer> getGridDimensions() {
+        State[][] states = this.states;
+        return Pair.of(states[0].length, states.length);
     }
 
 
-    private static Integer countLivingNeighbours(State[][] grid, int x, int y) {
+    private Integer countLivingNeighbours(int x, int y) {
         List<State> neighbours = new ArrayList<>();
+        State[][] grid = this.states;
         if (x > 0) {
             neighbours.add(grid[y][x - 1]);
         }
@@ -111,45 +109,48 @@ public class Grid {
         if (x > 0 && y > 0) {
             neighbours.add(grid[y - 1][x - 1]);
         }
-        if (x > 0 && hasNextRow(grid, y)) {
+        if (x > 0 && hasNextRow(y)) {
             neighbours.add(grid[y + 1][x - 1]);
         }
-        if (y > 0 && hasNextColumn(grid, x, y)) {
+        if (y > 0 && hasNextColumn(x, y)) {
             neighbours.add(grid[y - 1][x + 1]);
         }
-        if (hasNextColumn(grid, x, y)) {
+        if (hasNextColumn(x, y)) {
             neighbours.add(grid[y][x + 1]);
         }
-        if (hasNextColumn(grid, x, y) && hasNextRow(grid, y)) {
+        if (hasNextColumn(x, y) && hasNextRow(y)) {
             neighbours.add(grid[y + 1][x + 1]);
         }
-        if (hasNextRow(grid, y)) {
+        if (hasNextRow(y)) {
             neighbours.add(grid[y + 1][x]);
         }
         return filterOutDeadCells(neighbours).size();
     }
 
-    private static Boolean willStayAlive(State[][] grid, Integer x, Integer y) {
-        int living = countLivingNeighbours(grid, x, y);
+    private Boolean willStayAlive(Integer x, Integer y) {
+
+        State[][] states = this.states;
+        int living = this.countLivingNeighbours(x, y);
+
         if (living == 3) {
             return true;
         }
         if (living == 2) {
-            return grid[y][x] == State.ALIVE;
+            return states[y][x] == State.ALIVE;
         }
         return false;
     }
 
 
-    private static Boolean hasNextRow(State[][] grid, Integer y) {
-        return y < (grid.length - 1);
+    private Boolean hasNextRow(Integer y) {
+        return y < (this.states.length - 1);
     }
 
-    private static Boolean hasNextColumn(State[][] grid, Integer x, Integer y) {
-        return x < (grid[y].length - 1);
+    private Boolean hasNextColumn(Integer x, Integer y) {
+        return x < (this.states[y].length - 1);
     }
 
-    private static List<State> filterOutDeadCells(List<State> neighbours) {
+    private List<State> filterOutDeadCells(List<State> neighbours) {
         return neighbours
                 .stream()
                 .filter(value -> value == State.ALIVE)

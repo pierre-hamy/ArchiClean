@@ -1,6 +1,7 @@
 package com.octo.kata.archiclean.infrastructure.api.controllers;
 
 import com.octo.kata.archiclean.adapters.CellMapper;
+import com.octo.kata.archiclean.adapters.GridMapper;
 import com.octo.kata.archiclean.domain.Cell;
 import com.octo.kata.archiclean.domain.Grid;
 import com.octo.kata.archiclean.infrastructure.api.dto.CellDTO;
@@ -36,10 +37,12 @@ public class GridController {
     }
 
     @PostMapping(value = "/grid", produces = APPLICATION_JSON_VALUE)
-    public List<CellDTO> evolveGrid(@RequestBody List<Cell> cells) {
+    public List<CellDTO> evolveGrid(@RequestBody List<CellDTO> cells) {
 
 
-        Grid returnedGrid = this.updateGridUseCase.execute(cells);
+        Grid gridUpdates = GridMapper.fromApiToDomain(CellMapper.fromApiListToDomainList(cells));
+
+        Grid returnedGrid = this.updateGridUseCase.execute(gridUpdates);
 
         return CellMapper.fromDomainListToApiList(returnedGrid.gridToCellArray());
     }
